@@ -1,0 +1,35 @@
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Insira um número para calcular seu fatorial desajeitado: ");
+    int number = scanner.nextInt();
+    String expression = Integer.toString(number);
+    String lastOperation = "*";
+    for (int i = number - 1; i > 0; i--) {
+      if (lastOperation.equals("*")) {
+        expression = expression + " * " + i;
+        lastOperation = "*";
+      } else if (lastOperation.equals("/")) {
+        expression = expression + " / " + i;
+        lastOperation = "/";
+      } else if (lastOperation.equals("+")) {
+        expression = "(" + expression + ") + " + i;
+        lastOperation = "+";
+      } else {
+        expression = "(" + expression + ") - " + i;
+        lastOperation = "-";
+      }
+    }
+    NumberFormat nf = NumberFormat.getInstance();
+    try {
+      double result = nf.parse(expression).doubleValue();
+      int roundedResult = Math.round(result);
+      System.out.println("O resultado do fatorial desajeitado arredondado é: " + roundedResult);
+    } catch (Exception e) {
+      System.out.println("Erro ao avaliar a expressão.");
+    }
+  }
+}
