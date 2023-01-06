@@ -1,7 +1,7 @@
 package entities;
 
 public class Employee {
-	int ID;
+	Integer ID;
 	String name;
 	double salary;
 	
@@ -13,7 +13,7 @@ public class Employee {
 	public int getID() {
 		return ID;
 	}
-	public void setID(int iD) {
+	public void setID(Integer iD) {
 		ID = iD;
 	}
 	public String getName() {

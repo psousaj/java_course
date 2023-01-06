@@ -18,15 +18,21 @@ public class App {
 		
 		for(int i = 0; i<quantityOfEmployees; i++) {
 			System.out.printf("Employee #%s:", i+1);
-			System.out.println("ID: ");
-			int ID = sc.nextInt();
+			System.out.println("Id: ");
+			int id = sc.nextInt();
+			
+			while(hasId(employees, id)){
+				System.out.print("Id already taken! Try again:");
+				id=sc.nextInt();
+			}
+			
 			sc.nextLine();
 			System.out.println("Name: ");
 			String name = sc.nextLine();
 			System.out.println("Salary: ");
 			double salary = sc.nextDouble();
 			
-			employees.add(new Employee(ID, name, salary));
+			employees.add(new Employee(id, name, salary));
 		}
 		
 		employees.forEach(System.out::println);
@@ -34,6 +40,7 @@ public class App {
 		
 		System.out.println("Enter the employee id that will have salary increase: ");
 		int idEmployeeIncreaseSalary = sc.nextInt();
+		
 		System.out.println("Enter the percentage");
 		int percentage = sc.nextInt();
 		
@@ -45,12 +52,12 @@ public class App {
 		 };
 		 
 		employees.stream()
-				 .filter(x->x.getID() == idEmployeeIncreaseSalary)
+				 .filter(x->x.getID() == (idEmployeeIncreaseSalary))
 				 .findAny().ifPresentOrElse(consumer, new Runnable() {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						System.out.println("This ID does not exist");
+							System.out.println("This is an invalid employee Id! Try again");
 					}
 				});
 				 
@@ -76,4 +83,8 @@ public class App {
 		sc.close();
 	}
 
+	public static boolean hasId(List<Employee> list, int id) {
+		Employee emp = list.stream().filter(x -> x.getID() == id).findFirst().orElse(null);
+		return emp != null;
+	}
 }
