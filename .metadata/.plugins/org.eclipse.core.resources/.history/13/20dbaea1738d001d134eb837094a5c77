@@ -36,7 +36,7 @@ public class App {
 			if (rooms[i] != null) System.out.printf("%s: %s%n", i, rooms[i]);
 		}
 		sc.close();
-		//comment
+
 	}
 
 }
