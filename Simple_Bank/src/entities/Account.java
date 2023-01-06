@@ -1,0 +1,49 @@
+package entities;
+
+public class Account {
+	private String number;
+	String name;
+	double balance;
+	
+	public Account(String number, String name) {
+		this.number = number;
+		this.name = name;
+	}
+	
+	public Account(String number, String name, double initialDeposit) {
+		this(number,name);
+		deposit(initialDeposit);
+	}
+	
+	public String getNome() {
+		return name;
+	}
+
+	public void setNome(String nome) {
+		this.name = nome;
+	}
+
+	public double getSaldo() {
+		return balance;
+	}
+
+	public double deposit(double value) {
+		return balance+=value;
+	}
+	
+	public double withDraw(double value) {
+		return balance-=(value+5);
+	}
+	
+	public String toString() {
+		return String.format("Account data: \n"
+							+"Account %s, "
+							+"Holder: %s, "
+							+"Balance: $ %.2f",
+							number, getNome(), getSaldo());	
+	}
+	
+	public boolean hasDept(String answer) {
+		return(answer.equalsIgnoreCase("y")) ? true : false;
+	}
+}

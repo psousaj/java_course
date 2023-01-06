@@ -1,0 +1,21 @@
+package entities;
+
+public class Conta {
+	private String numero;
+	String nome;
+	double saldo;
+	
+	public Conta(String numero, String nome) {
+		this.numero = numero;
+		this.nome = nome;
+	}
+	
+	public Conta(String numero, String nome, double saldo) {
+		this(numero,nome);
+		this.saldo = saldo;
+	}
+
+	
+	
+	
+}

@@ -1,0 +1,43 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Conta;
+
+public class App {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		Conta conta;
+		double saldo;
+		
+		System.out.println("Enter account number: ");
+		String numero = sc.nextLine();
+		System.out.println("Enter account holder: ");
+		String nome = sc.nextLine();
+		System.out.println("Is there an inicial deposit (y/n)? ");
+		if (sc.next().equals("y") || sc.next().equals("Y")) {
+			System.out.println("Enter initial deposit value: ");
+			saldo = sc.nextDouble();
+			conta = new Conta(numero,  nome, saldo);
+		} else {
+			conta = new Conta(numero,  nome);
+		}
+		
+		System.out.println("\n"+conta);
+		
+		System.out.println("\nEnter a deposit value: ");
+		conta.deposito(sc.nextDouble());
+		
+		System.out.println("Updated "+conta);
+		
+		System.out.println("\nEnter a withdraw amount: ");
+		conta.saque(sc.nextDouble());
+		
+		System.out.println("Updated "+conta);
+		
+	}
+
+}

@@ -1,0 +1,49 @@
+package entities;
+
+public class Conta {
+	private String number;
+	String name;
+	double saldo;
+	
+	public Conta(String numero, String nome) {
+		this.number = numero;
+		this.name = nome;
+	}
+	
+	public Conta(String numero, String nome, double saldo) {
+		this(numero,nome);
+		this.saldo = saldo;
+	}
+	
+	public String getNome() {
+		return name;
+	}
+
+	public void setNome(String nome) {
+		this.name = nome;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public double deposit(double value) {
+		return saldo+=value;
+	}
+	
+	public double withDraw(double value) {
+		return saldo-=(value+5);
+	}
+	
+	public String toString() {
+		return String.format("Account data: \n"
+							+"Account %s, "
+							+"Holder: %s, "
+							+"Balance: $ %.2f",
+							number, getNome(), getSaldo());	
+	}
+	
+	public boolean hasDept(String answer) {
+		return(answer.equalsIgnoreCase("y")) ? true : false;
+	}
+}

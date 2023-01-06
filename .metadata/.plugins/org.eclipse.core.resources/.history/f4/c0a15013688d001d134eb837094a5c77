@@ -1,0 +1,36 @@
+package entities;
+
+public class Room {
+	private String name;
+	private String email;
+	private int room;
+	
+	public Room(String nome, String email, int room) {
+		this.name = nome;
+		this.email = email;
+		this.room = room;
+	}
+	
+	public String getNome() {
+		return name;
+	}
+	public void setNome(String nome) {
+		this.name = nome;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getRoom() {
+		return room;
+	}
+	public void setRoom(int room) {
+		this.room = room;
+	}
+	
+	public String toString() {
+		return String.format("%s, %s", name, email);
+	}
+}
