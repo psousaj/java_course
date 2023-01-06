@@ -31,6 +31,6 @@ public class Room {
 	}
 	
 	public String toString() {
-		return String.format("%s: %s, %s", number, client, email_client);
+		return String.format("%s, %s", client, email_client);
 	}
 }

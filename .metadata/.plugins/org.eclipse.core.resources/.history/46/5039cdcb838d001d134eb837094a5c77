@@ -9,6 +9,15 @@ import java.util.function.Consumer;
 
 import entities.Room;
 
+class ConsumerMy implements Consumer<Room>{
+
+	@Override
+	public void accept(Room Room) {
+		if (Room != null) System.out.println(Room);
+	}
+	
+}
+
 public class App {
 
 	public static void main(String[] args) {
@@ -37,16 +46,12 @@ public class App {
 		
 		System.out.println("\nBusy Rooms:");
 //		for (int i = 0; i<rooms.length; i++) {
-////			if (rooms[i] != null) System.out.printf("%s%n", rooms[i]);
+////			if (rooms[i] != null) System.out.printf("%s: %s%n", i, rooms[i]);
 ////		}
 		
 		List<Room> al = new ArrayList<Room>(Arrays.asList(rooms));
-		al.forEach(new Consumer<Room>() {
-			@Override
-			public void accept(Room Room) {
-				if (Room != null) System.out.println(Room);
-			}	
-		});
+		al.forEach(new ConsumerMy());
+		
 		
 		sc.close();
 		//comment

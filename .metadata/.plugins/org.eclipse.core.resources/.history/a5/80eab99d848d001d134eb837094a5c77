@@ -4,6 +4,7 @@ public class Room {
 	private String client;
 	private String email_client;
 	private int number;
+	private int position;
 	
 	public Room(String nome, String email, int room) {
 		this.client = nome;
@@ -31,6 +32,6 @@ public class Room {
 	}
 	
 	public String toString() {
-		return String.format("%s: %s, %s", number, client, email_client);
+		return String.format("%s, %s", client, email_client);
 	}
 }

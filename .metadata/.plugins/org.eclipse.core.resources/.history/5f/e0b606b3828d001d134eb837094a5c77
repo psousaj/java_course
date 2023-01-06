@@ -2,10 +2,8 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.function.Consumer;
 
 import entities.Room;
 
@@ -37,21 +35,16 @@ public class App {
 		
 		System.out.println("\nBusy Rooms:");
 //		for (int i = 0; i<rooms.length; i++) {
-////			if (rooms[i] != null) System.out.printf("%s%n", rooms[i]);
+////			if (rooms[i] != null) System.out.printf("%s: %s%n", i, rooms[i]);
 ////		}
 		
-		List<Room> al = new ArrayList<Room>(Arrays.asList(rooms));
-		al.forEach(new Consumer<Room>() {
-			@Override
-			public void accept(Room Room) {
-				if (Room != null) System.out.println(Room);
-			}	
-		});
+		ArrayList al = new ArrayList(Arrays.asList(rooms));
+		al.forEach(System.out::println);
+		
 		
 		sc.close();
 		//comment
 		//New comment	
 	}
 
-	
 }

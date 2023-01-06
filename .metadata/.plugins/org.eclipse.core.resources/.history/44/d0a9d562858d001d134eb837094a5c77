@@ -37,7 +37,7 @@ public class App {
 		
 		System.out.println("\nBusy Rooms:");
 //		for (int i = 0; i<rooms.length; i++) {
-////			if (rooms[i] != null) System.out.printf("%s%n", rooms[i]);
+////			if (rooms[i] != null) System.out.printf("%s: %s%n", i, rooms[i]);
 ////		}
 		
 		List<Room> al = new ArrayList<Room>(Arrays.asList(rooms));
