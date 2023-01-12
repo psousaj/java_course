@@ -53,7 +53,7 @@ public class App {
 		 
 		employees.stream()
 				 .filter(x->x.getID() == (idEmployeeIncreaseSalary))
-				 .findAny().ifPresentOrElse(consumer, new Runnable() {
+				 .findFirst().ifPresentOrElse(consumer, new Runnable() {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
